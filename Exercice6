@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+class Personne {
+public:
+    string nom ;
+    string prenom;
+    int date;
+public:
+    Personne(string n,string p,int d){
+        nom=n;
+        prenom=p;
+        date=d;
+    }
+    virtual void Afficher(){
+    cout<<" le nom est " <<nom<<", le prenom est : "<<prenom<<", L age est : "<<date<<"\n";
+    }
+};
+class Employe : public Personne{
+
+public:
+    int salaire;
+    Employe(string n,string p,int a,int s):Personne(n ,p ,a ){
+        salaire = s;
+    }
+    void Afficher(){
+    cout<<" le nom est " <<nom<<", le prenom est : "<<prenom<<", L age est : "<<date<<", Le salaire est : "<<salaire<<"\n";
+    }
+};
+class Chef : public Employe{
+public:
+    string service;
+    Chef(string n,string p,int a,int s,string se):Employe(n,p,a,s){
+        service=se;
+    }
+    void Afficher(){
+        cout<<" le nom est " <<nom<<", le prenom est : "<<prenom<<", L age est : "<<date<<", Le salaire est : "<<salaire<<", Le service est : "<<service<<"\n";
+    }
+};
+class Directeur : public Chef{
+public:
+    string societe;
+    Directeur(string n,string p,int a,int s,string se,string so):Chef(n,p,a,s,se){
+    societe=so;
+    }
+    void Afficher(){
+        cout<<" le nom est " <<nom<<", le prenom est : "<<prenom<<", L age est : "<<date<<", Le salaire est : "<<salaire<<", Le service est : "<<service<<", La societe est : "<<societe<<"\n" ;
+    }
+};
+int main()
+{
+    Personne P1 = Personne("Boufarhi","Ayman",20);
+    P1.Afficher();
+    Employe E1 = Employe("Austin","Davies",30,5000);
+    E1.Afficher();
+    Chef C1 = Chef("lavel","Mickel",50,50000,"cacher");
+    C1.Afficher();
+    Directeur D1 = Directeur("Olin","Jackson",25,5000,"gerer","entreprise");
+    D1.Afficher();
+}

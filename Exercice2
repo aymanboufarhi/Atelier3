@@ -1,0 +1,33 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+class Shape{
+public:
+    float largeur;
+    float hauteur;
+    Shape(float l, float h){
+        largeur = l;
+        hauteur = h;}
+ };
+
+class Triangle: public Shape{
+    public:
+    Triangle(float x,float y):Shape(x,y){}
+    void Area()
+    {cout << "L'aire du Triangle = " << largeur*hauteur/2;}
+};
+
+class Rectangle: public Shape{
+    public:
+    Rectangle(float x,float y):Shape(x,y){}
+    void Area1()
+    {cout << "\nL'aire du Rectangle = " << largeur*hauteur/2;}
+};
+
+int main(){
+Triangle t(3,5);
+Rectangle r(6,3);
+t.Area();
+r.Area1();
+}

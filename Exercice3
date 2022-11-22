@@ -1,0 +1,91 @@
+#include <iostream>
+
+using namespace std;
+class Complexe{
+    int nr1;
+    int ni1;
+    int nr2;
+    int ni2;
+    public:
+        void Num1(){
+                int a1;
+                int b1;
+                cout<<"entrez le nombre reele pour le premier nombre : " ;
+                cin>>a1;
+                cout<<"entrez le nombre imaginaire pour le premier nombre : ";
+                cin>>b1;
+                nr1=a1;
+                ni1=b1;
+                cout<<"le premier nombre est :  "<<nr1<<" + "<<ni1<<"i"<<endl;
+        }
+        void Num2(){
+                int a2;
+                int b2;
+                cout<<"entrez le nombre reele pour le deuxieme nombre : " ;
+                cin>>a2;
+                cout<<"entrez le nombre imaginaire pour le deuxieme nombre : ";
+                cin>>b2;
+                nr2=a2;
+                ni2=b2;
+            cout<<"le deuxieme nombre est :  "<<nr2<<" + "<<ni2<<"i"<<endl;
+
+    }
+    int menu();
+    void addition();
+    void soustraction();
+    void multiplication();
+    void division();
+};
+void Complexe::addition(){
+        cout<<"  l addition \n ";
+        cout<<"("<<nr1<<" + "<<ni1<<"i ) + ("<<nr2<<" + "<<ni2<<"i ) = " <<nr1+nr2<<" + ("<<ni1+ni2<<")i";
+}
+void Complexe::soustraction(){
+        cout<<" soustraction \n ";
+        cout<<"("<<nr1<<" + "<<ni1<<"i ) - ("<<nr2<<" + "<<ni2<<"i ) = "<<nr1-nr2<<" + ("<<ni1-ni2<<")i";
+}
+void Complexe::multiplication(){
+        cout<<" multiplication  \n ";
+        cout<<"("<<nr1<<" + "<<ni1<<"i ) X ("<<nr2<<" + "<<ni2<<"i ) = "<<(nr1*nr2)-(ni2*ni1)<<" + "<<(nr1*ni2)+(ni1*nr2)<<"i";
+}
+void Complexe::division(){
+        int dv ;
+        int dvz;
+        dv  =  ((nr1*nr2)+(ni1*ni2))/((nr2*nr2)+(ni2*ni2));
+        dvz =  (-(nr1*ni2)+(ni1*nr2))/((nr2*nr2)+(ni2*ni2));
+        cout<<" la division  \n ";
+        cout<<"("<<nr1<<" + "<<ni1<<"i ) / ("<<nr2<<" + "<<ni2<<"i ) = "<<dv<<" + "<<dvz<<"i";
+}
+int Complexe::menu(){
+    int choix;
+    cout<<"\n les operations : \n ";
+    cout<<"pour additioner tap 1 \n ";
+    cout<<"pour soustracter tap 2 \n ";
+    cout<<"pour multipluer tap 3 \n ";
+    cout<<"pour diviser tap 4 \n ";
+    cin>>choix;
+
+  switch(choix) {
+  case 1:
+  addition();
+    break;
+  case 2:
+  soustraction();
+    break;
+  case 3:
+  multiplication();
+    break;
+  case 4:
+  division();
+};
+
+}
+
+int main()
+{
+    Complexe i ;
+    i.Num1();
+    i.Num2();
+    i.menu();
+    return 0;
+}

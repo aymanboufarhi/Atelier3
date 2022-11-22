@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+class Mere{
+public:
+    void display()
+    {cout << "C'est la mere" << endl;}
+ };
+
+class Fille: public Mere{
+    public:
+    void display()
+    {cout << "C'est la fille" << endl;}
+};
+
+int main(){
+Fille f;
+f.display();
+}
